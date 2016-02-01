@@ -11,8 +11,9 @@ from libs import log
 
 log.info("Initialising server")
 
-os.environ["TZ"] = "UTC"
-time.tzset()
+if(config.root.debug is not True):
+    os.environ["TZ"] = "UTC"
+    time.tzset()
 
 ### Init Flask ###
 app = flask.Flask(__name__)
