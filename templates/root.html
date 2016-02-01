@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Template."/>
+
+        <link rel="shortcut icon" href="/static/images/favicon.png"/>
+
+        <!-- Scripts -->
+        <script src="/static/script/external/jquery.js"></script>
+        <script src="/static/script/external/jquery_cookie.js"></script>
+        <script src="/static/script/external/bootstrap.js"></script>
+        <script src="/static/script/theme_selector.js"></script>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="/static/style/external/bootstrap.css"/>
+        <link rel="stylesheet" href="/static/style/external/theme/spacelab.css" class="theme-sheet"/>
+        <link rel="stylesheet" href="/static/style/theme_customisation/spacelab.css" class="theme-sheet-customisation"/>
+        <link rel="stylesheet" href="/static/style/external/font-awesome.css"/>
+        <link rel="stylesheet" href="/static/style/main.css"/>
+
+        <title>Template</title>
+
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Template</a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li {% if request.path == "/" %} class="active" {% endif %}>
+                            <a href="/">Home</a>
+                        </li>
+
+                        <!-- Dropdown Test -->
+                        <li class="dropdown {% if request.path.split("/")[1] == 'thing' %} active {% endif %}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Dropdown <span class="caret"</span></a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Dropdown Item 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dropdown Item 2</a>
+                                </li>
+
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Admin</li>
+
+                                <li>
+                                    <a href="#">Some Admin Item</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Theme Dropdown -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <span class="fa fa-tint"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-theme="slate" class="theme-link">Slate</a></li>
+                                <li><a href="#" data-theme="spacelab" class="theme-link">Spacelab</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="container">
+                {% block header %}
+                <h1>Template</h1>
+                {% endblock %}
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            {% block content %}
+            <p>Template</p>
+            {% endblock %}
+        </div>
+    </body>
+</html>

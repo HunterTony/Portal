@@ -1,0 +1,15 @@
+{% extends "root.html" %}
+
+{% block head %}
+<meta http-equiv="refresh" content="2;{{ return_url }}"/>
+{% endblock %}
+
+{% block header %}
+<h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+<p>{{ message}}</p>
+
+<p>You will be automatically redirected in a few seconds.</p>
+{% endblock %}

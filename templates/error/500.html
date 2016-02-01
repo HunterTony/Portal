@@ -1,0 +1,14 @@
+{% extends "root.html" %}
+
+{% block header %}
+                <h1>500 - Internal Server Error</h1>
+{% endblock %}
+
+{% block content %}
+            <p>The server encountered an unexpected condition which prevented it from fulfilling the request.</p>
+            <p>When reporting the error, supply this exception identifier:</p>
+            <p>{{ exception["id"] }}</p>
+
+            <br/>
+            <br/>
+{% endblock %}

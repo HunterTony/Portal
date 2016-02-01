@@ -1,0 +1,11 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+<p>{{ message}}</p>
+
+<p>Click <a href="{{ return_url }}">here</a> to go back.</p>
+{% endblock %}
