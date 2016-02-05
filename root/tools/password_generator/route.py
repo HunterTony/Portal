@@ -3,7 +3,7 @@ from . import post
 
 
 def init(app):
-    @app.route("/tools/password_generator/new")
+    @app.route("/tools/password_generator")
     def tools_password_generator_new():
         return new.do()
 

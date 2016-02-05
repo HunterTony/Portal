@@ -47,8 +47,10 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tools <span class="caret"</span></a>
 
                             <ul class="dropdown-menu">
-                                <li {% if request.path == "/tools/password_generator/new" %}class="active"{% endif %}>
-                                    <a href="/tools/password_generator/new">Password Generator</a>
+                                <li {% if request.path == "/tools/password_generator" %}class="active"{% endif %}>
+                                    <a href="/tools/password_generator">Password Generator</a>
+                                </li>
+
                                 <li {% if request.path == "/tools/create_agent_link" %}class="active"{% endif %}>
                                     <a href="/tools/create_agent_link">Create Agent Link</a>
                                 </li>
