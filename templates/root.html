@@ -42,23 +42,13 @@
                             <a href="/">Home</a>
                         </li>
 
-                        <!-- Dropdown Test -->
-                        <li class="dropdown {% if request.path.split("/")[1] == 'thing' %} active {% endif %}">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Dropdown <span class="caret"</span></a>
+                        <!-- Tools -->
+                        <li class="dropdown {% if request.path.split("/")[1] == 'tools' %} active {% endif %}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tools <span class="caret"</span></a>
 
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Dropdown Item 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Dropdown Item 2</a>
-                                </li>
-
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Admin</li>
-
-                                <li>
-                                    <a href="#">Some Admin Item</a>
+                                <li {% if request.path == "/tools/password_generator/new" %}class="active"{% endif %}>
+                                    <a href="/tools/password_generator/new">Password Generator</a>
                                 </li>
                             </ul>
                         </li>
@@ -95,6 +85,8 @@
             {% block content %}
             <p>Welcome to the Cilix management portal.</p>
             {% endblock %}
+            <br/>
+            <br/>
         </div>
     </body>
 </html>

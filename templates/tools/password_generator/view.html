@@ -1,0 +1,19 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Password Generator</h1>
+{% endblock %}
+
+{% block content %}
+
+<a class="btn btn-default" href="javascript:history.go(0)">Regenerate</a>
+<a class="btn btn-default" href="javascript:history.go(-1)">Change Settings</a>
+
+<hr/>
+
+<table class="table" width="100%">
+    {% for password in passwords %}
+    <tr><td>{{ password }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

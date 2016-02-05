@@ -1,0 +1,89 @@
+{% extends "root.html" %}
+
+{% block head %}
+<script src="/static/script/panel_toggle.js"></script>
+{% endblock %}
+
+{% block header %}
+<h1>Password Generator</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/tools/password_generator/post" method="POST">
+    <input type="hidden" name="_CSRF_TOKEN_" value="{{ _CSRF_TOKEN_ }}">
+
+    <h4>Source</h4>
+    <div class="form-group">
+        <label for="base">Base:</label>
+        <select id="base" name="base" class="form-control" onchange="toggle_panel('base', $('#base').val())" required>
+            <option value="characters">Characters</option>
+            <option value="words">Words</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <div panel_group="base" panel_name="words" style="display: none">
+            <label for="dictionary">Dictionary:</label>
+            <select id="dictionary" name="dictionary" class="form-control">
+                {% for dictionary in available_dictionaries %}
+                <option value="{{ dictionary }}">{{ dictionary|title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="base-length">Length <span class="fa fa-question-circle" title="The number of items to pull from the base for each password, e.g. a length of 3 will use 3 words per password."></span></label>
+        <input type="number" name="base-length" value=8 class="form-control" placeholder="Length" required>
+    </div>
+
+    <hr/>
+
+    <h4>Mutations</h4>
+    <div class="form-group">
+        <div class="checkbox">
+            <label><input type="checkbox" name="de-vowel"> De-Vowel</label>
+            <span class="fa fa-question-circle" title="Remove vowels, e.g. 'Rmv vwls'."></span>
+        </div>
+
+        <div class="checkbox form-inline">
+            <label><input type="checkbox" name="duplicate"> Duplicate</label>
+            <input type="number" name="duplicate-frequency" class="form-control input-sm" placeholder="Frequency">
+            <span class="fa fa-question-circle" title="Duplicate characters, e.g. 'DDupllicaate  chaaraccterrs'. Frequency controls the gap between duplicated characters."></span>
+        </div>
+
+        <div class="checkbox form-inline">
+            <label><input type="checkbox" name="intersperse"> Intersperse</label>
+            <input type="number" name="intersperse-frequency" class="form-control input-sm" placeholder="Frequency">
+            <input type="text" name="intersperse-characters" class="form-control input-sm" placeholder="Characters">
+            <span class="fa fa-question-circle" title="Intersperse characters, e.g. 'I!n!t!e!r!s!p!e!r!s!e!'.  Frequency controls the gap between interspersed characters.  Characters is the sequence to intersperse with."></span>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="leetspeak"> Leetspeak</label>
+            <span class="fa fa-question-circle" title="Replace characters with their Leetspeak alternatives, e.g. 'R3pl4c3 ch4r4c73r5'."></span>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="reverse"> Reverse</label>
+            <span class="fa fa-question-circle" title="Reverse character order, e.g. 'esreveR'."></span>
+        </div>
+    </div>
+
+    <hr/>
+
+    <h4>Capitalisation</h4>
+    <div class="form-group">
+        <div class="radio">
+            <label class="radio-inline"><input type="radio" name="capital" value="all">All</label>
+            <label class="radio-inline"><input type="radio" name="capital" value="none">None</label>
+            <label class="radio-inline"><input type="radio" name="capital" value="random">Random</label>
+            <label class="radio-inline"><input type="radio" name="capital" value="title">Title</label>
+        </div>
+    </div>
+
+    <hr/>
+
+    <button type="submit" class="btn btn-default">Generate</button>
+</form>
+{% endblock %}
