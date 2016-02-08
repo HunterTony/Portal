@@ -14,13 +14,3 @@ def init(app):
         return {
             "_CSRF_TOKEN_": flask.session["_CSRF_TOKEN_"],
         }
-
-
-    @app.before_request
-    def check_token():
-        if(flask.request.method == "POST" or flask.request.form):
-            if("_CSRF_TOKEN_" not in flask.session):
-                flask.abort(400)
-
-            if(flask.request.form["_CSRF_TOKEN_"] != flask.session["_CSRF_TOKEN_"]):
-                flask.abort(400)

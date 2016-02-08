@@ -23,6 +23,14 @@ def init(app):
 
         log.info("{0} {1}>".format(str(flask.request).rstrip(">"), details))
 
+        ### Check CSRF Token ###
+        if(flask.request.method == "POST" or flask.request.form):
+            if("_CSRF_TOKEN_" not in flask.session):
+                flask.abort(400)
+
+            if(flask.request.form["_CSRF_TOKEN_"] != flask.session["_CSRF_TOKEN_"]):
+                flask.abort(400)
+
         ### Check Auth State ###
         if(flask.request.endpoint in ["auth_redirect", "auth_login", "static"]):
             return None
