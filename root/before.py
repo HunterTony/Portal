@@ -1,18 +1,33 @@
 import flask
 
 from libs import log
+from . import auth
 
 
 def init(app):
     @app.before_request
     def before_request():
         ### Request Logging ###
-        details = [
-            {"parameters":      dict(flask.request.args)},
-            {"data":            dict(flask.request.form)},
-            {"remote_addr":     flask.request.remote_addr},
-            {"x_forwarded_for": flask.request.headers.get("X-Forwarded-For")},
-            {"user":            flask.session["user_id"] if "user_id" in flask.session else None},
-        ]
+        details = {
+            "parameters":      dict(flask.request.args),
+            "data":            dict(flask.request.form),
+            "remote_addr":     flask.request.remote_addr,
+            "x_forwarded_for": flask.request.headers.get("X-Forwarded-For"),
+            "user":            flask.session["user_id"] if "user_id" in flask.session else None,
+        }
+
+        if("username" in details["data"]):
+            details["data"]["username"] = "... REDACTED ..."
+        if("password" in details["data"]):
+            details["data"]["password"] = "... REDACTED ..."
 
         log.info("{0} {1}>".format(str(flask.request).rstrip(">"), details))
+
+        ### Check Auth State ###
+        if(flask.request.endpoint in ["auth_redirect", "auth_login", "static"]):
+            return None
+
+        if(not auth.check.client_authed()):
+            flask.session["auth_return_url"] = flask.request.path
+            return flask.redirect(flask.url_for("auth_redirect"), 302)
+

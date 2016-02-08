@@ -1,0 +1,30 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Authentication Required</h1>
+{% endblock %}
+
+{% block content %}
+{% if error is defined %}
+<div class="callout callout-error">
+    <h4>Authentication Error</h4>
+    <p>{{ error }}</p>
+</div>
+{% endif %}
+
+<form action="/auth/login" method="POST">
+    <input type="hidden" name="_CSRF_TOKEN_" value="{{ _CSRF_TOKEN_ }}">
+
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-default">Login</button>
+</form>
+{% endblock %}
