@@ -13,7 +13,7 @@ def init(app):
             "data":            dict(flask.request.form),
             "remote_addr":     flask.request.remote_addr,
             "x_forwarded_for": flask.request.headers.get("X-Forwarded-For"),
-            "user":            flask.session["user_id"] if "user_id" in flask.session else None,
+            "username":        flask.session["username"] if "username" in flask.session else None,
         }
 
         if("username" in details["data"]):
