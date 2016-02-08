@@ -1,6 +1,8 @@
 import flask
 import smtplib
 import socket
+import time
+import random
 
 import config
 from libs import exception
@@ -17,7 +19,19 @@ def validate_post(username, password):
         raise exception.AuthError("Invalid value supplied for username or password")
 
 
+def mask_timing():
+    time.sleep(8 + random.randint(-2, 2))
+
+
 def validate_credentials(username, password):
+    try:
+        if(username.split("@")[1] != config.auth.host_domain):
+            mask_timing()
+            raise exception.AuthError("Invalid credentials supplied.")
+    except IndexError:
+        mask_timing()
+        raise exception.AuthError("Invalid credentials supplied.")
+
     try:
         with smtplib.SMTP(config.auth.smtp_host, config.auth.smtp_port) as smtp:
             try:
@@ -26,7 +40,7 @@ def validate_credentials(username, password):
                 smtp.login(username, password)
                 smtp.quit()
             except smtplib.SMTPAuthenticationError as error:
-                raise exception.AuthError("Invalid credentials supplied.".format(error))
+                raise exception.AuthError("Invalid credentials supplied.")
     except (smtplib.SMTPConnectError, smtplib.SMTPHeloError, smtplib.SMTPException, socket.timeout, socket.gaierror) as error:
         raise exception.AuthError("Failed to connect to server: '{0}'".format(error))
 
