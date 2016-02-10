@@ -1,0 +1,36 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Introduction</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Hello!</h4>
+<p>Before you begin, make a coffee and find a comfortable chair.</p>
+<p>This documentation covers the various custom systems used by Cilix.</p>
+<p>You will find a index below, from which you can jump to any part of the documentation that you require.  You will also find a link at the bottom of each page to the next page, should you wish to read the whole lot sequentially.</p>
+
+<hr/>
+
+<h4>Index</h4>
+<ul>
+    <li><a href="/documentation">Introduction</a></li>
+    <li><a href="/documentation/systems_overview">Systems Overview</a></li>
+    <li>
+        Core Tools
+        <ul>
+            <li><a href="/documentation/core_tools/pcbootstrap">PCBootstrap</a></li>
+            <li><a href="/documentation/core_tools/pcsetup">PCSetup</a></li>
+            <li><a href="/documentation/core_tools/pcupdate">PCUpdate</a></li>
+        </ul>
+    </li>
+
+    <li><a href="/documentation/portal">Portal</a></li>
+    <li><a href="/documentation/gitlab">GitLab</a></li>
+</ul>
+
+<hr/>
+
+<a class="btn btn-default disabled">Previous Page</a>
+<a class="btn btn-default pull-right" href="/documentation/systems_overview">Next Page (Systems Overview)</a>
+{% endblock %}

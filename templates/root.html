@@ -43,6 +43,11 @@
                             <a href="/">Home</a>
                         </li>
 
+                        <!-- Documentation -->
+                        <li {% if request.path.split("/")[1] == 'documentation' %} class="active" {% endif %}>
+                            <a href="/documentation">Documentation</a>
+                        </li>
+
                         <!-- Downloads -->
                         <li {% if request.path.split("/")[1] == 'downloads' %} class="active" {% endif %}>
                             <a href="/downloads">Downloads</a>

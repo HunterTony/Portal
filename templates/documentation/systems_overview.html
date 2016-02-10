@@ -1,0 +1,51 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Systems Overview</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Core Tools</h4>
+<p>The trifecta of PC configuration and maintainence tools.  PCBootstrap, PCSetup, and PCUpdate.</p>
+
+<p>PCBootstrap is responsible for installing the prerequisites required for pretty much everything else to work.  It is one of the only tools written in Powershell, because before it is run the Python interpreter is not installed.</p>
+
+<p>PCSetup is a tool that can be manually run to perform most of the work required when setting up a new workstation.  The tool itself requires PCBootstrap to be run first, but a standalone binary PCSetup-AutoRun is downloadable from the Portal which runs PCBootstrap and then PCSetup automatically.</p>
+
+<p>PCUpdate is a tool that runs on all supported workstations as a check in Remote Management.  It allows for easy automatic installation and updating of packages.</p>
+
+<p>You can find detailed information on each tool here:</p>
+<ul>
+    <li><a href="/documentation/core_tools/pcbootstrap">PCBootstrap</a></li>
+    <li><a href="/documentation/core_tools/pcsetup">PCSetup</a></li>
+    <li><a href="/documentation/core_tools/pcupdate">PCUpdate</a></li>
+</ul>
+
+<hr/>
+
+<h4>Portal</h4>
+<p>The website that you're currently reading.  It houses documentation, downloads, and various tools.</p>
+<p>Describing how the Portal is built is beyond the scope of this documentation, but you can find the source code on <a href="/documentation/gitlab">GitLab</a> if you are interested.</p>
+
+<p>You can find detailed information on the Portal here:</p>
+<ul>
+    <li><a href="/documentation/portal">Portal</a></li>
+</ul>
+
+<hr/>
+
+<h4>Remote Management Scripts</h4>
+<p>Checks and tasks that run on the Remote Management platform.</p>
+<p>Checks are divided into these categories:</p>
+<ul>
+    <li><b>Alert</b> - Monitor various bits of a workstation and fail should they detect an issue.</li>
+    <li><b>Information</b> - Gather information about a workstation and display it.  These do not fail during normal operation.</li>
+</ul>
+
+<p>Tools are exactly the same as Checks, but run as Background Tasks instead.  This allows them to have a maximum 24 hour runtime, rather than the 150 second maximum for checks.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation">Previous Page (Introduction)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/pcbootstrap">Next Page (Core Tools - PCBootstrap)</a>
+{% endblock %}

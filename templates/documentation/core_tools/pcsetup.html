@@ -1,0 +1,25 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Core Tools - PCSetup</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<p>PCSetup is a tool that can be manually run to perform most of the work required when setting up a new workstation.  The tool itself requires PCBootstrap to be run first, but a standalone binary PCSetup-AutoRun is downloadable from the Portal which runs PCBootstrap and then PCSetup automatically.</p>
+
+<hr/>
+<h4>Details</h4>
+
+<p>PCSetup is written in Python.  It is an "old" system, so the source is not available on <a href="/documentation/gitlab">GitLab</a>.</p>
+
+<hr/>
+
+<h4>Debugging</h4>
+<p>PCSetup rarely fails, and is safe to interrupt and later resume at any point during execution.  Generally the only case where you will see a failure is when the workstation's internet connection is slow or unstable.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/core_tools/pcbootstrap">Previous Page (Core Tools - PCBootstrap)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/pcupdate">Next Page (Core Tools - PCUpdate)</a>
+{% endblock %}

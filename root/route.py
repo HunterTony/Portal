@@ -1,6 +1,7 @@
 import flask
 
 from . import auth
+from . import documentation
 from . import downloads
 from . import tools
 
@@ -11,5 +12,6 @@ def init(app):
         return flask.render_template("/root.html")
 
     auth.route.init(app)
+    documentation.route.init(app)
     downloads.route.init(app)
     tools.route.init(app)

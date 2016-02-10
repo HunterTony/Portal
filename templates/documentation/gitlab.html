@@ -1,0 +1,32 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>GitLab</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<p><a target="_blank" href="https://gitlab.com/">GitLab</a> is a hosted Git platform that houses source code for all modern systems.  By "modern" I mean any projects written or updated in the end of 2015 and the beginning of 2016.</p>
+
+<hr/>
+
+<h4>Details</h4>
+<p>Each project is owned by the "cilix" group.  The group is owned by a shared user "cilix_support", the password for which can be found in PasswordSafe.</p>
+<p>Anyone who wishes to access GitLab should create an account of their own and invite it to the group using the cilix_support account.</p>
+
+<br/>
+
+<p>If you need to make a change to any of the projects, you will need to:</p>
+<ul>
+    <li>Pull the project</li>
+    <li>Make your changes to the source files</li>
+    <li>Commit your changes</li>
+    <li>Push your commits</li>
+</ul>
+<p>Detailed information on these steps can be found on the <a target="_blank" href="https://git-scm.com/">Git Website</a></p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/portal">Previous Page (Portal)</a>
+<a class="btn btn-default pull-right disabled">Next Page</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Core Tools - PCBootstrap</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<p>PCBootstrap is responsible for installing the prerequisites required for pretty much everything else to work.  It is one of the only tools written in Powershell because it is most often run on a new workstation which wont yet have Python installed.</p>
+<p>PCBootstrap installs the following packages:</p>
+<ul>
+    <li><b>Visual Studio 2010 Redistributable</b> - Required by the Python interpreter.</li>
+    <li><b>Python 3.4 Interpreter</b> - Required by pretty much everything else.</li>
+    <li><b>ActiveTcl</b> - A Tcl interpreter.  Required by TkInter, which is used by PCSetup and various other tools to create forms.</li>
+    <li><b>PyCurl</b> - A Python library used for HTTP and FTP requests.  Used by PCSetup and various other tools to download and upload from HTTP and FTP servers.</li>
+</ul>
+
+<hr/>
+<h4>Details</h4>
+<p>PCBootstrap is written to be compatible with Powershell 2.0 and above, which is available on every Windows OS after XP.  XP support is theoretically possible by manually installing Powershell 2.0, but this is not advised as other tools are not designed to support XP.</p>
+
+<p>PCBootstrap is run automatically by <a href="/documentation/core_tools/pcsetup">PCSetup-AutoRun</a> before <a href="/documentation/core_tools/pcsetup">PCSetup</a> is run.</p>
+
+<p>PCBootstrap is available as an automated task in Remote Management, which can be run in the background on any existing workstations that are enrolled (for example if a new client joins).</p>
+
+<p>The source code for PCBootstrap is hosted on <a href="/documentation/gitlab">GitLab</a> under Remote Management/Core.</p>
+
+<hr/>
+<h4>Debugging</h4>
+<p>PCBootstrap rarely fails, and is safe to interrupt and later resume at any point during execution.  Generally the only case where you will see a failure is when the workstation's internet connection is slow or unstable.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/systems_overview">Previous Page (Systems Overview)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/pcsetup">Next Page (Core Tools - PCSetup)</a>
+{% endblock %}
