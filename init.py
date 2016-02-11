@@ -1,6 +1,7 @@
 import os
 import time
 import flask
+import datetime
 
 import config
 from root import route
@@ -24,6 +25,8 @@ app.template_folder = "templates/"
 app.secret_key  = config.flask.session_key
 if(app.secret_key == "debug" and config.root.debug is not True):
     raise RuntimeError("Secret key not set in a production environment")
+
+app.permanent_session_lifetime = datetime.timedelta(hours=4)
 
 app.jinja_env.trim_blocks   = True
 app.jinja_env.lstrip_blocks = True
