@@ -26,7 +26,7 @@ def init(app):
         hash.update(os.urandom(8))
         exception["id"] = hash.hexdigest()
 
-        exception["value"], exception["type"], exception["traceback"] = sys.exec_info()
+        exception["value"], exception["type"], exception["traceback"] = sys.exc_info()
         exception["traceback"] = traceback.extract_tb(exception["traceback"])
 
         log.error("An unhandled exception occurred:")
