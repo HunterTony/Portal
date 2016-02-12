@@ -6,25 +6,25 @@
 
 {% block content %}
 <h4>Core Tools</h4>
-<p>The trifecta of PC configuration and maintainence tools.  PCBootstrap, PCSetup, and PCUpdate.</p>
+<p>The trifecta of configuration and maintainence tools.  Bootstrap, Setup, and Update.</p>
 
-<p>PCBootstrap is responsible for installing the prerequisites required for pretty much everything else to work.  It is one of the only tools written in Powershell, because before it is run the Python interpreter is not installed.</p>
+<p>Bootstrap is responsible for installing the prerequisites required for pretty much everything else to work.  It is one of the only tools written in Powershell because it is most often run on a new workstation which wont yet have Python installed.</p>
 
-<p>PCSetup is a tool that can be manually run to perform most of the work required when setting up a new workstation.  The tool itself requires PCBootstrap to be run first, but a standalone binary PCSetup-AutoRun is downloadable from the Portal which runs PCBootstrap and then PCSetup automatically.</p>
+<p>Setup is a tool that can be manually run to perform most of the work required when setting up a new workstation.  The tool itself requires Bootstrap to be run first, but the <a href="/tools/setup_workstation">Setup Workstation</a> binary does this automatically.</p>
 
-<p>PCUpdate is a tool that runs on all supported workstations as a check in Remote Management.  It allows for easy automatic installation and updating of packages.</p>
+<p>Update is a tool that runs on all supported workstations as a check in Remote Management.  It allows for easy automatic installation and updating of packages.</p>
 
 <p>You can find detailed information on each tool here:</p>
 <ul>
-    <li><a href="/documentation/core_tools/pcbootstrap">PCBootstrap</a></li>
-    <li><a href="/documentation/core_tools/pcsetup">PCSetup</a></li>
-    <li><a href="/documentation/core_tools/pcupdate">PCUpdate</a></li>
+    <li><a href="/documentation/core_tools/bootstrap">Bootstrap</a></li>
+    <li><a href="/documentation/core_tools/setup">Setup</a></li>
+    <li><a href="/documentation/core_tools/update">Update</a></li>
 </ul>
 
 <hr/>
 
 <h4>Portal</h4>
-<p>The website that you're currently reading.  It houses documentation, downloads, and various tools.</p>
+<p>The website that you're currently reading.  It houses documentation and various tools.</p>
 <p>Describing how the Portal is built is beyond the scope of this documentation, but you can find the source code on <a href="/documentation/gitlab">GitLab</a> if you are interested.</p>
 
 <p>You can find detailed information on the Portal here:</p>
@@ -47,5 +47,5 @@
 <hr/>
 
 <a class="btn btn-default" href="/documentation">Previous Page (Introduction)</a>
-<a class="btn btn-default pull-right" href="/documentation/core_tools/pcbootstrap">Next Page (Core Tools - PCBootstrap)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/bootstrap">Next Page (Core Tools - Bootstrap)</a>
 {% endblock %}

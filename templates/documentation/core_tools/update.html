@@ -1,0 +1,26 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Core Tools - Update</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<h3 style="color: red">Changing Soon - Checkback for changes later</h3>
+<p>Update is a tool that runs on all supported workstations as a check in remote management.  It allows for easy automatic installation and updating of packages.</p>
+
+<hr/>
+
+<h4>Details</h4>
+<p>Update is written in Python.  It is an "old" system, so the source is not available on <a href="/documentation/gitlab">GitLab</a>.</p>
+
+<hr/>
+<h4>Debugging</h4>
+<p>Update rarely fails, and is safe to interrupt and later resume at any point during execution.  Generally the only case where you will see a failure is when the workstation's internet connection is slow or unstable.</p>
+<p>You may also see a message referencing a lock file "C:\Cilix\Update\lock".  If the check fails more than one with this message then delete the lock file.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/core_tools/setup">Previous Page (Core Tools - Setup)</a>
+<a class="btn btn-default pull-right" href="/documentation/portal">Next Page (Portal)</a>
+{% endblock %}

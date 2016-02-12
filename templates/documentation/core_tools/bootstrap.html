@@ -1,0 +1,39 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Core Tools - Bootstrap</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<p>Bootstrap is responsible for installing the prerequisites required for pretty much everything else to work.  It is one of the only tools written in Powershell because it is most often run on a new workstation which wont yet have Python installed.</p>
+
+<p>Bootstrap installs the following packages:</p>
+<ul>
+    <li><b>Visual Studio 2010 Redistributable</b> - Required by the Python interpreter.</li>
+    <li><b>Python 3.4 Interpreter</b> - Required by pretty much everything else.</li>
+    <li><b>Requests</b> - A Python library used for HTTP requests.</li>
+</ul>
+
+<hr/>
+<h4>Details</h4>
+<p>Bootstrap is written to be compatible with Powershell 2.0 and above, which is available on every Windows OS after XP.  XP support is theoretically possible by manually installing Powershell 2.0, but this is not advised as other tools are not designed to support XP.</p>
+
+<p>Bootstrap is run automatically by the <a href="/tools/setup_workstation">Setup Workstation</a> binary before <a href="/documentation/core_tools/setup">Setup</a> is run.</p>
+
+<p>Bootstrap is available as an automated task in Remote Management, which can be run in the background on any existing workstations that are enrolled (for example if a new client joins).</p>
+
+<p>The source code for Bootstrap is hosted on <a href="/documentation/gitlab">GitLab</a> under "Remote Management/Core".</p>
+
+<p>If you make changes to Bootstrap you will need to upload the new version to Remote Management and replace the file under "Portal/root/tools/setup_workstation/binary/src".  See the <a href="/documentation/portal">Portal</a> documentation for update instructions.</p>
+
+<hr/>
+
+<h4>Debugging</h4>
+<p>Bootstrap rarely fails, and is safe to interrupt and later resume at any point during execution.  Generally the only case where you will see a failure is when the workstation's internet connection is slow or unstable.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/systems_overview">Previous Page (Systems Overview)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/setup">Next Page (Core Tools - Setup)</a>
+{% endblock %}

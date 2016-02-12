@@ -1,0 +1,28 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Core Tools - Setup</h1>
+{% endblock %}
+
+{% block content %}
+<h4>Overview</h4>
+<p>Setup is a tool that can be manually run to perform most of the work required when setting up a new workstation.  The tool itself requires Bootstrap to be run first, but the <a href="/tools/setup_workstation">Setup Workstation</a> binary does this automatically.</p>
+
+<hr/>
+
+<h4>Details</h4>
+
+<p>Setup is written in Python, and the source is  hosted on <a href="/documentation/gitlab">GitLab</a> under "Portal/root/tools/setup_workstation/binary".</p>
+
+<p>You can add a new action to Setup by creating a new Python script under "Portal/root/tools/setup_workstation/actions".  Use one of the existing scripts as a template.</p>
+
+<hr/>
+
+<h4>Debugging</h4>
+<p>Setup rarely fails, and is safe to interrupt and later resume at any point during execution.  Generally the only case where you will see a failure is when the workstation's internet connection is slow or unstable.</p>
+
+<hr/>
+
+<a class="btn btn-default" href="/documentation/core_tools/bootstrap">Previous Page (Core Tools - Bootstrap)</a>
+<a class="btn btn-default pull-right" href="/documentation/core_tools/update">Next Page (Core Tools - Update)</a>
+{% endblock %}

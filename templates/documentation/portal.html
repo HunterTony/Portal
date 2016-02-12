@@ -6,7 +6,7 @@
 
 {% block content %}
 <h4>Overview</h4>
-<p>The website that you're currently reading.  It houses documentation, downloads, and various tools.</p>
+<p>The website that you're currently reading.  It houses documentation and various tools.</p>
 <p>Describing how the Portal is built is beyond the scope of this documentation, but you can find the source code on <a target="_blank" href="/documentation/gitlab">GitLab</a> if you are interested.</p>
 
 <hr/>
@@ -49,16 +49,7 @@
     </div>
 </div>
 
-<p>If you make a change to the static files, you will need to do the same but with the static server path instead:</p>
-<div class="panel panel-default">
-    <div class="panel-body">
-        cd /srv/http/static <br/>
-        sudo chown -R cilix:users . <br/>
-        git pull <br/>
-        sudo chown -R http:http . <br/>
-        sudo systemctl restart gunicorn-portal <br/>
-    </div>
-</div>
+<p>If you make a change to agent, static, or libs, you will need to do the same but with the correct path.</p>
 
 <hr/>
 
@@ -90,6 +81,6 @@
 
 <hr/>
 
-<a class="btn btn-default" href="/documentation/core_tools/pcupdate">Previous Page (Core Tools - PCUpdate)</a>
+<a class="btn btn-default" href="/documentation/core_tools/update">Previous Page (Core Tools - Update)</a>
 <a class="btn btn-default pull-right" href="/documentation/gitlab">Next Page (Gitlab)</a>
 {% endblock %}
