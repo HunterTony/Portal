@@ -56,7 +56,7 @@ def do():
     try:
         setup_binary = compile_setup_binary(config)
     except exception.SetupWorkstationError as error:
-        return render.error("Setup Workstation Error", "Failed to compile setup binary: '{0}'".format(error))
+        return render.error("Setup Workstation Error", "Failed to compile setup binary: '{0}'".format(error), "/tools/setup_workstation")
 
     setup_binary_file = io.BytesIO(setup_binary)
 
