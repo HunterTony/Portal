@@ -4,6 +4,9 @@ from libs import log
 from . import auth
 
 
+auth_excluded_endpoints = ["auth_redirect", "auth_login", "static"]
+
+
 def init(app):
     @app.before_request
     def before_request():
@@ -32,7 +35,7 @@ def init(app):
                 flask.abort(400)
 
         ### Check Auth State ###
-        if(flask.request.endpoint in ["auth_redirect", "auth_login", "static"]):
+        if(flask.request.endpoint in auth_excluded_endpoints):
             return None
 
         if(not auth.check.client_authed()):
