@@ -57,6 +57,10 @@
                                     <a href="/tools/create_agent_link">Create Agent Link</a>
                                 </li>
 
+                                <li {% if request.path.split("/")[2] == 'package_manager' %}class="active"{% endif %}>
+                                    <a href="/tools/package_manager">Package Manager</a>
+                                </li>
+
                                 <li {% if request.path.split("/")[2] == 'password_generator' %}class="active"{% endif %}>
                                     <a href="/tools/password_generator">Password Generator</a>
                                 </li>

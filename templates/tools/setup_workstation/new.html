@@ -41,11 +41,11 @@
 
     <hr/>
 
-    <h4>Actions</h4>
+    <h4>Packages</h4>
     <div class="form-group">
-        {% for action in actions %}
+        {% for package in packages %}
         <div class="checkbox">
-            <label><input type="checkbox" name="{{ action }}"> {{ action|replace("_", " ")|title }}</label>
+            <label><input type="checkbox" name="{{ package["name"] }}"> {{ package["name"] }}</label>
         </div>
         {% endfor %}
     </div>

@@ -3,6 +3,7 @@ sys.dont_write_bytecode = True
 
 import requests
 import json
+import imp
 
 
 def load_config():
@@ -12,22 +13,16 @@ def load_config():
     return config
 
 
-def download_action(action):
-    print("  Downloading '{}'".format(action))
+def execute_package(package):
+    print("  Executing '{}'".format(package["name"]))
 
-    return requests.get("https://portal.cilix.co.uk/tools/setup_workstation/action_download/{}".format(action)).content.decode()
-
-
-def execute_action(action, action_data):
-    print("  Executing '{}'".format(action))
-
-    exec(action_data)
+    module = imp.new_module(package["name"])
+    exec(package["script"], module.__dict__)
 
 
 def run_setup(config):
-    for action in config["actions"]:
-        action_data = download_action(action)
-        execute_action(action, action_data)
+    for package in config["packages"]:
+        execute_package(package)
 
 
 def main():

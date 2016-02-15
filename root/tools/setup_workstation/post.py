@@ -9,6 +9,7 @@ import config
 from libs import api
 from libs import render
 from libs import exception
+from libs import package
 
 from root.tools.create_agent_link.post import create_agent
 
@@ -43,14 +44,14 @@ def do():
     site   = api.remote_management.site.get_from_id(client["id"], int(flask.request.form["site"]))
     agent_hash = create_agent(client, site)
 
-    selected_actions = []
-    for action in new.get_actions():
-        if(flask.request.form.get(action) is not None):
-            selected_actions.append(action)
+    selected_packages = []
+    for pack in package.get_for_application("setup"):
+        if(flask.request.form.get(pack["name"]) is not None):
+            selected_packages.append(pack)
 
     config = {
         "agent_hash": agent_hash,
-        "actions":    selected_actions,
+        "packages":   selected_packages,
     }
 
     try:

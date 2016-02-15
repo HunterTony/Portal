@@ -1,0 +1,29 @@
+{% extends "root.html" %}
+
+{% block header %}
+<h1>Package Manager</h1>
+{% endblock %}
+
+{% block content %}
+<table class="table-bordered" width=100%>
+    <thead>
+        <th width=33%>Name</th>
+        <th width=33%>Description</th>
+        <th width=33%>Applications</th>
+    </thead>
+
+    <tbody>
+        {% for package in packages %}
+        <tr class="clickable-row" onclick="document.location='/tools/package_manager/{{ package["name"] }}/edit'">
+            <td>{{ package["name"] }}</td>
+            <td>{{ package["description"] }}</td>
+            <td>{{ package["applications"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<hr/>
+
+<a class="btn btn-default" href="/tools/package_manager/new">New Package</a>
+{% endblock %}
