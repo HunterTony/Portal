@@ -21,18 +21,16 @@
     window.onload = update_site_select;
 
     function confirm_prerequisites() {
-        return confirm(`
-Please confirm these prerequisites before installing:
-1) The computer is connected to a stable internet connection
-2) The Office installer has already been run (if applicable)
-3) The Dell Digital Delivery install has already been run (if applicable)
-4) Adobe Acrobat Standard is not already installed (if installing Adobe Reader)
-
-After installing, please confirm these postrequisites:
-1) Add an entry to the client issue log
-2) Add a label to the computer
-3) Delete the Setup Workstation binary
-        `);
+        return confirm("Please confirm these prerequisites before installing:\n" +
+                       "1) The computer is connected to a stable internet connection\n" +
+                       "2) The Office installer has already been run (if applicable)\n" +
+                       "3) The Dell Digital Delivery install has already been run (if applicable)\n" +
+                       "4) Adobe Acrobat is not already installed (if installing Adobe Reader)\n" +
+                       "\n" +
+                       "After installing, please confirm these postrequisites:\n" +
+                       "1) Add an entry to the client issue log\n" +
+                       "2) Add a label to the computer\n" +
+                       "3) Delete the Setup Workstation binary\n");
     }
 </script>
 
