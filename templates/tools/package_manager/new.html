@@ -34,30 +34,6 @@
 
     <hr/>
 
-    <h4>Applications</h4>
-    <div class="form-group">
-        <div class="checkbox">
-            <label><input type="checkbox" name="setup" {% if "setup" in applications %}checked{% endif %}> Setup</label>
-        </div>
-
-        <div class="checkbox">
-            <label><input type="checkbox" name="update" {% if "update" in applications %}checked{% endif %}> Update</label>
-        </div>
-    </div>
-
-    <hr/>
-
-    <h4>Eligibility</h4>
-    <div class="form-group">
-        {% if eligibility is defined %}
-        <textarea name="eligibility" rows=2 class="form-control" required>{{ eligibility|safe }}</textarea>
-        {% else %}
-        <textarea name="eligibility" rows=2 class="form-control" required>["*"]</textarea>
-        {% endif %}
-    </div>
-
-    <hr/>
-
     <h4>Script</h4>
     <div class="form-group">
         {% if script is defined %}

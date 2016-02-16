@@ -45,7 +45,7 @@ def do():
     agent_hash = create_agent(client, site)
 
     selected_packages = []
-    for pack in package.get_for_application("setup"):
+    for pack in package.get_all():
         if(flask.request.form.get(pack["name"]) is not None):
             selected_packages.append(pack)
 
