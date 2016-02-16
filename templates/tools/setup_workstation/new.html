@@ -19,9 +19,19 @@
     }
 
     window.onload = update_site_select;
+
+    function confirm_prerequisites() {
+        return confirm(`
+Please confirm the following prerequisites before installing:
+1) The computer is connected to a stable internet connection
+2) The Office installer has already been run (if applicable)
+3) The Dell Digital Delivery install has already been run (if applicable)
+4) Adobe Acrobat Standard is not already installed (if installing Adobe Reader)
+        `);
+    }
 </script>
 
-<form action="/tools/setup_workstation/post" method="POST">
+<form action="/tools/setup_workstation/post" method="POST" onsubmit="return confirm_prerequisites();">
     <input type="hidden" name="_CSRF_TOKEN_" value="{{ _CSRF_TOKEN_ }}">
 
     <div class="form-group">
