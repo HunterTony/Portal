@@ -12,10 +12,18 @@
 <form action="/tools/password_generator/post" method="POST">
     <input type="hidden" name="_CSRF_TOKEN_" value="{{ _CSRF_TOKEN_ }}">
 
+    <script>
+        function toggle_dictionary() {
+            toggle_panel('base', $('#base').val());
+        }
+
+        window.onload = toggle_dictionary
+    </script>
+
     <h4>Source</h4>
     <div class="form-group">
         <label for="base">Base:</label>
-        <select id="base" name="base" class="form-control" onchange="toggle_panel('base', $('#base').val())" required>
+        <select id="base" name="base" class="form-control" onchange="toggle_dictionary()" required>
             <option value="characters">Characters</option>
             <option value="words">Words</option>
         </select>
