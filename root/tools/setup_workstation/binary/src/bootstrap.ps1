@@ -59,7 +59,7 @@ function install_requests() {
     write-host "  Requests"
 
     write-host "    Downloading"
-    download_file "https://github.com/kennethreitz/requests/archive/v2.8.1.zip" "C:\Cilix\Python\requests.zip"
+    download_file "https://cilix-public.s3-eu-west-1.amazonaws.com/Portal_files/requests.zip" "C:\Cilix\Python\requests.zip"
 
     write-host "    Extracting"
     $shell       = new-object -com Shell.Application
